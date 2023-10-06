@@ -2,11 +2,11 @@
 
 namespace Notes.DataBase
 {
-    public class db
+    public class Db
     {
         static SQLiteAsyncConnection database;
 
-        public db()
+        public Db()
         {
 
         }
@@ -28,7 +28,7 @@ namespace Notes.DataBase
         /// <summary>
         /// Adds new note to database
         /// </summary>
-        /// <param name="n" note object></param>
+        /// <param name="n"></param>
         /// <returns></returns>
         public static async Task AddNote(NoteTable n)
         {          
