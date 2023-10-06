@@ -11,12 +11,17 @@ public partial class NotePage : ContentPage
         InitializeComponent();
     }
 
+	/// <summary>
+	/// Save new note to database
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	public async void SaveButton_Clicked(object sender, EventArgs e)
 	{
 		string note = TextEditor.Text;
 		DateTime noteDate = DateTime.Now;
 
-		Note n = new Note();
+		NoteTable n = new NoteTable();
 		n.note = note;
 		n.Date = noteDate;
 

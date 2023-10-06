@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
+﻿using SQLite;
 
 namespace Notes.DataBase
 {
+    /// <summary>
+    /// Objects for note table
+    /// </summary>
     [Table("Note")]
-    public class Note
+    public class NoteTable
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

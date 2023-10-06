@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
+﻿using SQLite;
 
 namespace Notes.DataBase
 {
@@ -17,18 +12,27 @@ namespace Notes.DataBase
         }
 
 
-        public static async Task Init()
+        /// <summary>
+        /// Create database and table if it does not exist
+        /// </summary>
+        /// <returns></returns>
+        public static async Task InitialiseDataBase()
         {
             if (database != null)
                 return;
 
-            database = new SQLiteAsyncConnection(Constrants.DatabasePath, Constrants.Flags);
-            var result = await database.CreateTableAsync<Note>();
+            database = new SQLiteAsyncConnection(Config.DatabasePath, Config.Flags);
+            var result = await database.CreateTableAsync<NoteTable>();
         }
 
-        public static async Task AddNote(Note n)
+        /// <summary>
+        /// Adds new note to database
+        /// </summary>
+        /// <param name="n" note object></param>
+        /// <returns></returns>
+        public static async Task AddNote(NoteTable n)
         {          
-            await Init();
+            await InitialiseDataBase();
 
             var result = await database.InsertAsync(n);
         }

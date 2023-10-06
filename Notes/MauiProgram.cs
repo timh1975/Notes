@@ -17,7 +17,7 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<NotePage>();
 		builder.Services.AddTransient<NotePage>();
-		builder.Services.AddSingleton<Note>();
+		builder.Services.AddSingleton<NoteTable>();
 
 
 		return builder.Build();

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLitePCL;
+﻿using SQLitePCL;
 
 
-
-public static class Constrants
+/// <summary>
+/// Database settings
+/// </summary>
+public static class Config
 {
 
     public const string DatabaseFilename = "TodoSQLite.db3";
