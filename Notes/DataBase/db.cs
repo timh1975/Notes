@@ -23,6 +23,7 @@ namespace Notes.DataBase
 
             database = new SQLiteAsyncConnection(Config.DatabasePath, Config.Flags);
             var result = await database.CreateTableAsync<NoteTable>();
+            var resutl = await database.CreateTableAsync<Comments>();
         }
 
         /// <summary>
@@ -37,6 +38,20 @@ namespace Notes.DataBase
             var result = await database.InsertAsync(n);
         }
 
+        public static async Task<int> AddComment(Comments n)
+        {
+            await InitialiseDataBase();
+            var result = database.InsertAsync(n);
+            int fk = await database.ExecuteScalarAsync<int>("Select Comment_Id FROM Comment order by Comment_Id DESC limit 1");
+
+            //await Application.Current.MainPage.DisplayAlert("Primary Key ID", fk.ToString(),"Cancel");
+            return fk;
+            
+
+        }
+
+      
+       
     }
 
 }

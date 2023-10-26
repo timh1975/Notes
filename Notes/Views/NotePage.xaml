@@ -7,6 +7,9 @@
         <Editor x:Name="TextEditor"
                 Placeholder="Enter your note"           
                 HeightRequest="100" />
+        <Editor x:Name="txtComment"
+                Placeholder="Enter extra comments"
+                HeightRequest="100" />
 
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
             <Button Text="Save"

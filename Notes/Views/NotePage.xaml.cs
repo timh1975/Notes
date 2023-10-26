@@ -19,13 +19,21 @@ public partial class NotePage : ContentPage
 	public async void SaveNote_Clicked(object sender, EventArgs e)
 	{
 		string note = TextEditor.Text;
+		string comment_note = txtComment.Text;
 		DateTime noteDate = DateTime.Now;
+
 
 		NoteTable n = new NoteTable();
 		n.note = note;
 		n.Date = noteDate;
 
-     	await Db.AddNote(n);
+		Comments comments = new Comments();
+		comments.Comment = comment_note;
+
+        int fk = await Db.AddComment(comments);
+		n.Comment_Id = fk;
+        await Db.AddNote(n);
+		
 		
 	}
 
